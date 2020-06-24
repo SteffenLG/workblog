@@ -1,24 +1,38 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Blog from './components/Blog'
+import getAllPosts from './database/DatabaseService'
+import useGetAllPosts from './database/DatabaseService';
+import BlogPost from './components/BlogPost';
+import firebase from 'firebase';
 
 function App() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+      firebase.database()
+      .ref('posts')
+      .once('value')
+      .then(snapshot => {
+          const newPosts = snapshot.val();
+          console.log(newPosts);
+          setPosts(newPosts);
+      });
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Blog!
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <div>
+          {posts.map(post => (
+            <BlogPost title={post.title} body={post.body} />
+          ))}
+      </div>
     </div>
   );
 }
