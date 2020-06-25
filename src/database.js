@@ -1,5 +1,4 @@
 import firebase from 'firebase';
-import React, {useState, useEffect} from 'react';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC79wvcXieNiApZU80E9q1jv2AxhP5nLpA",
@@ -14,21 +13,6 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-function useGetAllPosts() {
-    const [posts, setPosts] = useState([]);
+const database = firebase.database();
 
-    useEffect(() => {
-        firebase.database()
-        .ref('posts')
-        .once('value')
-        .then(snapshot => {
-            const newPosts = snapshot.val();
-            console.log(newPosts);
-            setPosts(newPosts);
-        });
-    });
-
-    return posts;
-}
-
-export default useGetAllPosts;
+export default database;

@@ -1,17 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Blog from './components/Blog'
-import getAllPosts from './database/DatabaseService'
-import useGetAllPosts from './database/DatabaseService';
 import BlogPost from './components/BlogPost';
-import firebase from 'firebase';
+import BlogForm from './components/BlogForm';
+import database from './database';
 
 function App() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-      firebase.database()
+      database
       .ref('posts')
       .once('value')
       .then(snapshot => {
@@ -29,9 +27,14 @@ function App() {
         </p>
       </header>
       <div>
-          {posts.map(post => (
-            <BlogPost title={post.title} body={post.body} />
-          ))}
+          {
+            Object.entries(posts).map(([key, post]) => 
+              <BlogPost key={key} title={post.title} body={post.body} />
+            )
+          }
+      </div>
+      <div>
+        <BlogForm />
       </div>
     </div>
   );

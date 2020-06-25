@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Blog(props) {
+function Blog() {
+    
+
     return (
         <div className="blog">
-            {
-                
-            }
+            
         </div>
     );
 }
