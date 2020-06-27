@@ -1,16 +1,16 @@
 {
-    "posts": {
-        "1": {
-            "date": "10/06/2020",
-            "weekNumber": 18,
-            "title": "First!",
-            "body": "This is the first post on this blog!"
-        },
-        "2": {
-            "date": "20/06/2020",
-            "weekNumber": 19,
-            "title": "Second!!",
-            "body": "This is the second post on this blog!"
-        }
+  "posts" : {
+    "-MAhI0Bs0ULhuyLaPwBJ" : {
+      "body" : "First post",
+      "date" : "2020-06-25T21:04:44.107Z",
+      "title" : "First!",
+      "weekNumber" : 26
+    },
+    "-MAhI29qAwX1Mb8vfNDV" : {
+      "body" : "Second post",
+      "date" : "2020-06-25T21:04:52.184Z",
+      "title" : "Second!",
+      "weekNumber" : 26
     }
+  }
 }

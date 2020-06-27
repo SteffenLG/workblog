@@ -34,7 +34,9 @@ function App() {
           }
       </div>
       <div>
-        <BlogForm />
+        <BlogForm>
+          <p>Hello World</p>
+        </BlogForm>
       </div>
     </div>
   );

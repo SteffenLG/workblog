@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useInput } from '../hooks/input-hook';
 import database from '../database';
+import moment from 'moment';
 
 function NameForm(props) {
     const { value: title, bind: bindTitle, reset: resetTitle } = useInput('');
@@ -8,11 +9,20 @@ function NameForm(props) {
 
     const handleSubmit = evt => {
         evt.preventDefault();
-        console.log(title, body);
+
+        const date = moment().toISOString();
+        const weekNumber = moment().week();
+
+        console.log(title, body, date, weekNumber);
+        console.log(moment(date));
+
         database.ref('posts').push().set({
             title,
-            body
+            body,
+            date,
+            weekNumber
         });
+
         resetTitle();
         resetBody();
     };
@@ -30,6 +40,7 @@ function NameForm(props) {
                     <br/>
                 </label>
                 <textarea rows="3" cols="50" {...bindBody}/>
+                <br/>
                 <input type="submit" value="Submit" />
             </form>
         </div>
