@@ -1,16 +1,22 @@
 {
-  "posts" : {
-    "-MAhI0Bs0ULhuyLaPwBJ" : {
-      "body" : "First post",
-      "date" : "2020-06-25T21:04:44.107Z",
-      "title" : "First!",
-      "weekNumber" : 26
-    },
-    "-MAhI29qAwX1Mb8vfNDV" : {
-      "body" : "Second post",
-      "date" : "2020-06-25T21:04:52.184Z",
-      "title" : "Second!",
-      "weekNumber" : 26
+  "weeks" : {
+    "2020-26" : {
+      "posts" : {
+        "-MAhI0Bs0ULhuyLaPwBJ" : {
+          "body" : "First post",
+          "date" : "2020-06-25T21:04:44.107Z",
+          "title" : "First!",
+          "weekNumber" : 26
+        },
+        "-MAhI29qAwX1Mb8vfNDV" : {
+          "body" : "Second post",
+          "date" : "2020-06-25T21:04:52.184Z",
+          "title" : "Second!",
+          "weekNumber" : 26
+        }
+      },
+      "weekNumber" : 26,
+      "year" : 2020
     }
   }
 }

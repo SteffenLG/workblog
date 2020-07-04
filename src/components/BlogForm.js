@@ -12,11 +12,12 @@ function NameForm(props) {
 
         const date = moment().toISOString();
         const weekNumber = moment().week();
+        const yearWeek = `${moment().year()}-${moment().week()}`;
 
         console.log(title, body, date, weekNumber);
         console.log(moment(date));
 
-        database.ref('posts').push().set({
+        database.ref('weeks').push(yearWeek).set({
             title,
             body,
             date,
