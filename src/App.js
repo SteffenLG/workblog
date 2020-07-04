@@ -1,23 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import './App.css';
-import Blog from './components/Blog'
-import BlogPost from './components/BlogPost';
+import Blog from './components/Blog';
 import BlogForm from './components/BlogForm';
-import database from './database';
 
 function App() {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-      database
-      .ref('posts')
-      .once('value')
-      .then(snapshot => {
-          const newPosts = snapshot.val();
-          console.log(newPosts);
-          setPosts(newPosts);
-      });
-  }, []);
 
   return (
     <div className="App">
@@ -26,17 +12,11 @@ function App() {
           Blog!
         </p>
       </header>
-      <div>
-          {
-            Object.entries(posts).map(([key, post]) => 
-              <BlogPost key={key} title={post.title} body={post.body} />
-            )
-          }
+      <div className="Blog">
+        <Blog />
       </div>
-      <div>
-        <BlogForm>
-          <p>Hello World</p>
-        </BlogForm>
+      <div className="BlogForm">
+        <BlogForm />
       </div>
     </div>
   );

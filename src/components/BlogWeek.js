@@ -1,21 +1,24 @@
 import React from 'react';
+import BlogPost from './BlogPost';
 
 function BlogWeek(params) {
-    const { posts, weekNumber } = params;
+    const { week } = params;
 
     return (
         <div className="blogWeek">
             <div className="weekNumber">
-                <h5>Week</h5><br/>
-                <h1>{weekNumber}</h1>
+                <h5>Week</h5>
+                <h1>{week.weekNumber}</h1>
             </div>
             <div className="blogPosts">
                 {
-                    Object.entries(posts).map(([key, post]) => {
+                    Object.entries(week.posts).map(([key, post]) => 
                         <BlogPost key={key} post={post} />
-                    })
+                    )
                 }
             </div>
         </div>
     );
 }
+
+export default BlogWeek;
