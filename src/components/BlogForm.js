@@ -20,19 +20,21 @@ function BlogForm(props) {
 
         //TODO: Update form to work with new schema
         // Check if current week is in db
-        const weekExists = await database
-        .ref(`weeks/${yearWeek}`);
+
+        let weekExists = (await database.ref(`weeks/${yearWeek}`).once('value')).exists();
         
-        // if not, create week
         if (!weekExists) {
             database
-            .ref(`weeks/${yearWeek}`)
-            .set({
-                posts: {},
-                weekNumber,
-                year
-            });
+                .ref(`weeks/${yearWeek}`)
+                .set({
+                    posts: {},
+                    weekNumber: weekNumber,
+                    year: year
+                })
         }
+        
+        // if not, create week
+
         // add new post to week
         database
         .ref(`weeks/${yearWeek}/posts`)

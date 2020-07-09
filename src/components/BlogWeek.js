@@ -12,7 +12,10 @@ function BlogWeek(params) {
             </div>
             <div className="blogPosts">
                 {
-                    Object.entries(week.posts).map(([key, post]) => 
+                    week.posts &&
+                    Object.entries(week.posts)
+                    .reverse()
+                    .map(([key, post]) => 
                         <BlogPost key={key} post={post} />
                     )
                 }

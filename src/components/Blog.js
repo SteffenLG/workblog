@@ -8,8 +8,8 @@ function Blog() {
     useEffect(() => {
         database
         .ref('weeks')
-        .once('value')
-        .then(snapshot => {
+        .orderByKey()
+        .on('value', snapshot => {
             const newWeeks = snapshot.val();
             console.log(newWeeks);
             setWeeks(newWeeks);
@@ -20,6 +20,7 @@ function Blog() {
         <div className="blog">
             {
                 Object.entries(weeks)
+                .reverse()
                 .map(
                     ( [key, week] ) => (
                         <BlogWeek key={key} week={week} />
