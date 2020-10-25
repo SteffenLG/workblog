@@ -5,15 +5,24 @@
   font-family: s;
 }
 
-.App-Header {
+.App-header {
   text-align: center;
+  min-height: 100px;
+  padding-top: 20px;
 }
 
-.App-Header {
+.App-header > h1 {
+  max-width: 250px;
+  float: left;
+  margin-right: 100px;
+}
+
+.loginForm {
+  max-width: 500px;
+  float: right;
 }
 
 .blog {
-  margin: auto;
   width: 800px;
 }
 
